@@ -6,6 +6,8 @@ body {
 
 #logo {
     width: 475px;
+    animation-name: logoanimation;
+    animation-duration: 5s;
 }
 
 header {
@@ -56,4 +58,72 @@ a:visited {
     justify-content: center;
 }
 
-@keyframes 
+@keyframes logoanimation {
+    from {width: 25px;
+    opacity: 0;}
+    to {width: 475px;
+    opacity: 1;}
+}
+
+@media screen and (min-width: 900px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .card {
+        flex-basis: 250px;
+    }
+
+    body > header {
+        position: sticky;
+        top: 0px;
+    }
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+    #logo {
+        width: 475px;
+        animation: none;
+    }
+}
+
+@media print {
+    body {
+        font-family:Arial, Helvetica, sans-serif;
+        background-image: none;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .nav_links {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .pricing {
+        align-items: flex-end;
+        flex-wrap: nowrap;
+    }
+
+    .card {
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+
+    #gallery, .gallery {
+        display: none;
+    }
+
+    main li:nth-of-type(2)::after {
+        content: "👍"
+    }
+}
